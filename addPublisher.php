@@ -1,7 +1,9 @@
 <?php 
+//page title and shared header
 $pageTitle = 'Add Publisher';
-include('shared/header.php'); ?>
+include('shared/header.php'); ?>    
 
+<!-- form to take user input for new publisher-->
 <h2 class = "h2">Add a New Publisher</h2>
 <form method="post" action="insertPublisher.php">
     <div class="publisherDetails">

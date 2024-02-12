@@ -1,3 +1,4 @@
+<!-- Page title and shared header -->
 <?php 
     $pageTitle = 'Home';
     include('shared/header.php'); 

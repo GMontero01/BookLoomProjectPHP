@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="shared/styles.css"/>
     <title>Document</title>
 </head>
-
+<!-- Shared header amongst all pages -->
 <body>
     <header>
         <h1>BookLoom</h1>      

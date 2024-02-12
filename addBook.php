@@ -4,7 +4,7 @@ include('shared/header.php');
 ?>
 
 <h2>Add a new Book</h2>
-
+<!-- Form to capture user input for new book entry -->
 <form action="insertBook.php" method="post">
 
     <div class="bookDetails">
@@ -23,6 +23,7 @@ include('shared/header.php');
         <div>
         <label for="bookPublisher">Book Publisher:</label>
         <select name="bookPublisher" id="bookPublisher" required> 
+            <!-- Connect and pull database for publisher names -->
             <?php
             include('shared/databases.php');
             $sql = "SELECT * FROM bookPublishers ORDER BY publisherName"; // Change 'name' to 'publisherName'
@@ -38,7 +39,7 @@ include('shared/header.php');
         </select>
         </div>
     </div>
-
+<!-- radio button that hides last database drop down menu  -->
     <div class="movieDetails">
         <label for="madeIntoMovie">Made into Movie:</label>
         <input type="radio" id="madeIntoMovieYes" name="madeIntoMovie" value="yes" required />
@@ -52,16 +53,12 @@ include('shared/header.php');
             <label for="streamingService">Streaming Service:</label>
             <select id="streamingService" name="streamingService" required>
                 <?php
-                // connect
-                include('shared/databases.php');
-
-                // set up & run query, store data results
+                // connect, set up & run query, store data results and loop adding 1 at a time to dropdown 
+                include('shared/databases.php'); 
                 $sql = "SELECT * FROM services ORDER BY name";
                 $cmd = $database->prepare($sql);
                 $cmd->execute();
                 $services = $cmd->fetchAll();
-
-                // loop through list of services, adding each one to dropdown 1 at a time
                 foreach ($services as $service) {
                     echo '<option>' . $service['name'] . '</option>';
                 }

@@ -1,4 +1,5 @@
 <?php 
+//page title and shared header
 $pageTitle = "Saving your new book entry...";
 include('shared/header.php');
 
@@ -18,15 +19,15 @@ if (empty($bookTitle) || empty($bookGenre) || empty($streamingService) || empty(
     $check = false;
 }
 
-if(is_numeric($publishYear)){                                 //Published Year must be > 1700
+if(is_numeric($publishYear)){                       //Published Year must be > 1700
     if ($publishYear < 1700){
         echo 'Publish year must be post 1700';
         $check = false;
     }
 }
 else{
-    echo 'Publish year must be a year before 1700';
-    $check = false;
+    echo 'Publish year must be a year before 1700'; 
+    $check = false;                                 //ensures miss entry are not inserted into the database
 }
 
 if ($check == true){
