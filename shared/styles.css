@@ -1,0 +1,97 @@
+.streamingServiceQuestion {
+    display: none;
+}
+
+#madeIntoMovieYes:checked ~ .streamingServiceQuestion {
+    display: block;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+}
+
+thead {
+    background-color: #3a123a;
+    color: white;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style table rows */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style table cells */
+td {
+    padding: 20px;
+}
+
+/* Add hover effect to table rows */
+tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+h1, h2{
+   text-align: center; 
+}
+h1{
+    color: #FDFDFD;
+}
+
+nav {
+    background-color: #3D9970; /* Forest Green */
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: #FDFDFD; /* Off-White */
+}
+
+nav a:hover {
+    color: red
+    
+}
+body {
+    margin: 0%; /* Adjust the top margin to increase the space between the header and the body */
+    background-color: #FDFDFD; /* Off-White */
+    color: #001F3F; /* Deep Blue */
+}
+
+.publisherDetails {
+    text-align: center;
+}
+
+header {
+    background-color: #B10DC9; /* Rich Red */
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #001F3F; /* Deep Blue */
+    color: #FDFDFD; /* Off-White */
+    padding: 10px;
+    text-align: center;
+}
+
