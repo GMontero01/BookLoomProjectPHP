@@ -27,6 +27,15 @@
             <li>
                 <a href="addPublisher.php">Add Publisher</a>
             </li>
+            <li>
+                <a href="register.php">Register</a>
+            </li>
+            <li>
+                <a href="login.php">Login</a>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
         </ul>
     </nav>
     <main>
