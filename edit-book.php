@@ -1,4 +1,5 @@
 <?php
+include('shared/authenticate.php');
 $pageTitle = 'Edit Book';
 include('shared/header.php');
 

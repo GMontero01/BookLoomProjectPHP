@@ -1,4 +1,5 @@
 <?php
+include('shared/authenticate.php');
 $pageTitle = 'Add Book';
 include('shared/header.php');
 ?>

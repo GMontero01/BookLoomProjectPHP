@@ -18,9 +18,17 @@
             <li>
                 <a href="index.php">Home</a>
             </li>
-            <li>
-                <a href="addBook.php">Add Book</a>    
-            </li>
+            <?php
+            if (session_status() == PHP_SESSION_NONE){
+              session_start();  
+            }
+            
+            if (!empty($currentSession['username'])) {
+                echo '<li>
+                 <a href="addBook.php">Add Book</a>    
+                </li>'; 
+            }    
+            ?>
             <li>
                 <a href="bookLibrary.php">Book Library</a>
             </li>

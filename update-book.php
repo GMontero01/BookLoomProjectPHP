@@ -1,4 +1,5 @@
 <?php 
+include('shared/authenticate.php');
 //page title and shared header
 $pageTitle = "Saving your book updates...";
 include('shared/header.php');

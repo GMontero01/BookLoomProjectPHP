@@ -9,10 +9,14 @@ require 'shared/header.php';
 ?>
 
   <h2>Login</h2>
-
+  <?php
+  if (!empty($_GET['invalid'])){
+    echo '<h5> INVALID LOGIN</h5>';
+  }
+    ?>
   <h5>Please enter your credentials.</h5>
 
-  <form method="post" action="validate.php">
+  <form method="post" action="validateUser.php">
 
     <fieldset>
 

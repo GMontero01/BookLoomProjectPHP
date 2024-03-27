@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Register';
+$pageTitle = 'Register';
 
 require('shared/header.php');
 

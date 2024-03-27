@@ -1,4 +1,5 @@
 <?php
+include('shared/authenticate.php');
 // read the bookId from the url parameter using $_GET   
 $bookId = $_GET['bookId'];
 
