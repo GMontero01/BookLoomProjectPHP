@@ -15,6 +15,31 @@ $madeIntoMovie = $_POST['madeIntoMovie'];
 $bookPublisher = $_POST['bookPublisher'];
 $check = true;
 
+if  ($_FILES['bookCover']['size'] > 0){
+    $pictureName = $_FILES['bookCover']['name'];
+    $uniqueName = session_id() . '-' . $pictureName;
+    
+
+    $pictureSize = $_FILES['bookCover']['size'];
+    
+
+    $tempServerLocation = $_FILES['bookCover']['tmp_name'];
+    
+
+    $type = mime_content_type($tempServerLocation);
+    
+
+    if($type != 'image/png' && $type != 'image/jpeg'){
+        echo 'Photo must be a .png or .png';
+        exit();
+    }else{
+       move_uploaded_file($tempServerLocation, 'images/bookCovers/' . $uniqueName); 
+    }
+    
+}else{
+    $uniqueName = $_POST['activePhoto'];
+}
+
 if (empty($bookTitle) || empty($bookGenre) || empty($streamingService) || empty($publishYear) || empty($bookAuthor) || empty($madeIntoMovie) || empty($bookPublisher)) {
     // Checking if any field is empty 
     echo 'All entries are required<br />';
@@ -33,26 +58,32 @@ else{
 }
 
 if ($check == true){
-    include('shared/databases.php');    //Initializing the database
-    $sql = "UPDATE books SET bookTitle = :bookTitle, bookAuthor = :bookAuthor, publishYear = :publishYear, 
-    bookGenre = :bookGenre, streamingService = :streamingService, madeIntoMovie = :madeIntoMovie, bookPublisher = :bookPublisher
-    WHERE bookId = :bookId"; 
-   
-    $cmd = $database->prepare($sql);    //link data base with sql cmd
+    try {
+        include('shared/databases.php');    //Initializing the database
+        $sql = "UPDATE books SET bookTitle = :bookTitle, bookAuthor = :bookAuthor, publishYear = :publishYear, 
+        bookGenre = :bookGenre, streamingService = :streamingService, madeIntoMovie = :madeIntoMovie, bookPublisher = :bookPublisher, bookCover = :bookCover
+        WHERE bookId = :bookId"; 
+    
+        $cmd = $database->prepare($sql);    //link data base with sql cmd
 
-    $cmd->bindParam(':bookTitle', $bookTitle, PDO::PARAM_STR, 255);
-    $cmd->bindParam(':bookAuthor', $bookAuthor, PDO::PARAM_STR, 255);
-    $cmd->bindParam(':publishYear', $publishYear, PDO::PARAM_INT);
-    $cmd->bindParam(':bookGenre', $bookGenre, PDO::PARAM_STR, 75);                      //Maping each input to its own collumn 
-    $cmd->bindParam(':streamingService', $streamingService, PDO::PARAM_STR, 75);
-    $cmd->bindParam(':madeIntoMovie', $madeIntoMovie, PDO::PARAM_BOOL);
-    $cmd->bindParam(':bookPublisher', $bookPublisher, PDO::PARAM_STR, 75);
-    $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
+        $cmd->bindParam(':bookTitle', $bookTitle, PDO::PARAM_STR, 255);
+        $cmd->bindParam(':bookAuthor', $bookAuthor, PDO::PARAM_STR, 255);
+        $cmd->bindParam(':publishYear', $publishYear, PDO::PARAM_INT);
+        $cmd->bindParam(':bookGenre', $bookGenre, PDO::PARAM_STR, 75);                      //Maping each input to its own collumn 
+        $cmd->bindParam(':streamingService', $streamingService, PDO::PARAM_STR, 75);
+        $cmd->bindParam(':madeIntoMovie', $madeIntoMovie, PDO::PARAM_BOOL);
+        $cmd->bindParam(':bookPublisher', $bookPublisher, PDO::PARAM_STR, 75);
+        $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
+        $cmd->bindParam(':bookCover', $uniqueName, PDO::PARAM_STR, 100);
 
-    $cmd->execute();
+        $cmd->execute();
 
-    $database = null;
-
+        $database = null;
+    }
+    catch (Exception $err) {
+        header('location:error.php');
+        exit();
+    }
     echo 'Book updated';
 }
 ?>

@@ -5,19 +5,24 @@ $bookId = $_GET['bookId'];
 
 if (is_numeric($bookId)) {
     // connect to db
-    include('shared/databases.php');
+    try {
+        include('shared/databases.php');
 
-    // prepare SQL DELETE
-    $sql = "DELETE FROM books WHERE bookId = :bookId";
-    $cmd = $database->prepare($sql);
-    $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
+        // prepare SQL DELETE
+        $sql = "DELETE FROM books WHERE bookId = :bookId";
+        $cmd = $database->prepare($sql);
+        $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
 
-    // execute the delete
-    $cmd->execute();
+        // execute the delete
+        $cmd->execute();
 
-    // disconnect
-    $databases = null;
-
+        // disconnect
+        $databases = null;
+    }
+    catch (Exception $err) {
+        header('location:error.php');
+        exit();
+    }
     // show a message (temporarily)
     echo 'Show Deleted';
 

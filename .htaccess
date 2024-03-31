@@ -1,0 +1,4 @@
+ErrorDocument 404 https://lamp.computerstudi.es/~Gabriel200561098/BookLoomProjectPHP/404error.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.php$ https://lamp.computerstudi.es/~Gabriel200561098/BookLoomProjectPHP/404error.php [L]

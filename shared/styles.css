@@ -94,4 +94,18 @@ footer {
     padding: 10px;
     text-align: center;
 }
+#Error, .err {
+    color:red;
+    font-weight: bold;
+}
+
+.imgFormat {
+    width: 100px;
+}
+
+.imgFormatEdit {
+    width: 350px;
+    align-items: center;
+}
+
 

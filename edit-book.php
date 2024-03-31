@@ -18,23 +18,30 @@ $streamingService = null;
 // if numeric fetch show from db
 if (is_numeric($bookId)){
     //connect
-    include('shared/databases.php');
+    try {
+        include('shared/databases.php');
 
-    //run query and populate form for display
-    $sql = "SELECT * FROM books WHERE bookId = :bookId";
-    $cmd = $database->prepare($sql);
-    $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
-    $cmd->execute();
-    $book = $cmd->fetch();
+        //run query and populate form for display
+        $sql = "SELECT * FROM books WHERE bookId = :bookId";
+        $cmd = $database->prepare($sql);
+        $cmd->bindParam(':bookId', $bookId, PDO::PARAM_INT);
+        $cmd->execute();
+        $book = $cmd->fetch();
 
-    $bookTitle = $book['bookTitle'];
-    $bookAuthor = $book['bookAuthor'];
-    $publishYear = $book['publishYear'];
-    $bookGenre = $book['bookGenre'];
-    $bookPublisher = $book['bookPublisher'];
-    $madeIntoMovie = $book['madeIntoMovie'];
-    $streamingService = $book['streamingService'];
-    
+        $bookTitle = $book['bookTitle'];
+        $bookAuthor = $book['bookAuthor'];
+        $publishYear = $book['publishYear'];
+        $bookGenre = $book['bookGenre'];
+        $bookPublisher = $book['bookPublisher'];
+        $madeIntoMovie = $book['madeIntoMovie'];
+        $streamingService = $book['streamingService'];
+        $bookCover = $book['bookCover'];
+    }
+    catch (Exception $err) {
+        header('location:error.php');
+        exit();
+    }
+        
 }
  
 
@@ -42,7 +49,7 @@ if (is_numeric($bookId)){
 
 <h2>Edit Book Details</h2>
 <!-- Form to capture user input for new book entry -->
-<form action="update-book.php" method="post">
+<form action="update-book.php" method="post" enctype="multipart/form-data">
 
     <div class="bookDetails">
         <label for="bookTitle">Book Title:</label>
@@ -62,25 +69,32 @@ if (is_numeric($bookId)){
         <select name="bookPublisher" id="bookPublisher" required> 
             <!-- Connect and pull database for publisher names -->
             <?php
-            $sql = "SELECT * FROM bookPublishers ORDER BY publisherName"; // Change 'name' to 'publisherName'
-            $cmd = $database->prepare($sql);
-            $cmd->execute();
-            $publishers = $cmd->fetchAll();
+            try{
+                $sql = "SELECT * FROM bookPublishers ORDER BY publisherName"; // Change 'name' to 'publisherName'
+                $cmd = $database->prepare($sql);
+                $cmd->execute();
+                $publishers = $cmd->fetchAll();
 
-            //check each service and select the one that matches
-            foreach ($publishers as $publisher){
-                if ($publisher['publisherName'] == $bookPublisher) {
-                    echo '<option selected>' . $publisher['publisherName'] . '</option>';
+                //check each service and select the one that matches
+                foreach ($publishers as $publisher){
+                    if ($publisher['publisherName'] == $bookPublisher) {
+                        echo '<option selected>' . $publisher['publisherName'] . '</option>';
+                    }
+                    else{
+                        echo '<option>' . $publisher['publisherName'] . '</option>'; // Change 'bookPublisher' to 'publisherName'
+                    }
+                    
                 }
-                else{
-                    echo '<option>' . $publisher['publisherName'] . '</option>'; // Change 'bookPublisher' to 'publisherName'
-                }
-                
+            // $database = null;
             }
-           // $database = null;
             ?>
         </select>
         </div>
+        <div>
+            <label for="photo">Book Cover:</label>
+            <input type="file" id="photo" name="bookCover" accept="image/*" />
+            <input type="hidden" id="activePhoto" name="activePhoto" value="<?php echo $bookCover; ?>" />
+        <div>
     </div>
 <!-- radio button that hides last database drop down menu  -->
     <div class="movieDetails">
@@ -109,6 +123,13 @@ if (is_numeric($bookId)){
                 $database = null;
                 ?>
             </select>
+        </div>
+        <div>
+        <?php
+            if ($bookCover != null){
+                echo '<img src= "images/bookCovers/' . $bookCover . '" alt="Show Photo" class="imgFormatEdit"/>';
+            }
+            ?>
         </div>
     </div>
     <input type="hidden" name="bookId" id="bookId" value="<?php echo $bookId; ?>" />

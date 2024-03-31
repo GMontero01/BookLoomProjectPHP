@@ -2,11 +2,12 @@
 include('shared/authenticate.php');
 $pageTitle = 'Add Book';
 include('shared/header.php');
+
 ?>
 
 <h2>Add a new Book</h2>
 <!-- Form to capture user input for new book entry -->
-<form action="insertBook.php" method="post">
+<form action="insertBook.php" method="post" enctype="multipart/form-data">
 
     <div class="bookDetails">
         <label for="bookTitle">Book Title:</label>
@@ -26,20 +27,30 @@ include('shared/header.php');
         <select name="bookPublisher" id="bookPublisher" required> 
             <!-- Connect and pull database for publisher names -->
             <?php
-            include('shared/databases.php');
-            $sql = "SELECT * FROM bookPublishers ORDER BY publisherName"; // Change 'name' to 'publisherName'
-            $cmd = $database->prepare($sql);
-            $cmd->execute();
-            $publishers = $cmd->fetchAll();
+            try{
+                include('shared/databases.php');
+                $sql = "SELECT * FROM bookPublishers ORDER BY publisherName"; // Change 'name' to 'publisherName'
+                $cmd = $database->prepare($sql);
+                $cmd->execute();
+                $publishers = $cmd->fetchAll();
 
-            foreach ($publishers as $publisher){
-                echo '<option>' . $publisher['publisherName'] . '</option>'; // Change 'bookPublisher' to 'publisherName'
+                foreach ($publishers as $publisher){
+                    echo '<option>' . $publisher['publisherName'] . '</option>'; // Change 'bookPublisher' to 'publisherName'
+                }
+                $database = null;
             }
-            $database = null;
+            catch (Exception $err) {
+                header('location:error.php');
+                exit();
+            }
             ?>
         </select>
         </div>
     </div>
+    <div>
+        <label for="photo">Book Cover:</label>
+        <input type="file" id="bookCover" name="bookCover" accept="image/*" />
+    <div>
 <!-- radio button that hides last database drop down menu  -->
     <div class="movieDetails">
         <label for="madeIntoMovie">Made into Movie:</label>
@@ -55,22 +66,28 @@ include('shared/header.php');
             <select id="streamingService" name="streamingService" required>
                 <?php
                 // connect, set up & run query, store data results and loop adding 1 at a time to dropdown 
+                try{
                 include('shared/databases.php'); 
-                $sql = "SELECT * FROM services ORDER BY name";
-                $cmd = $database->prepare($sql);
-                $cmd->execute();
-                $services = $cmd->fetchAll();
-                foreach ($services as $service) {
-                    echo '<option>' . $service['name'] . '</option>';
-                }
+                    $sql = "SELECT * FROM services ORDER BY name";
+                    $cmd = $database->prepare($sql);
+                    $cmd->execute();
+                    $services = $cmd->fetchAll();
+                    foreach ($services as $service) {
+                        echo '<option>' . $service['name'] . '</option>';
+                    }
 
-                // disconnect
-                $database = null;
+                    // disconnect
+                    $database = null;
+                }
+                catch (Exception $err) {
+                    header('location:error.php');
+                    exit();
+                }
                 ?>
             </select>
         </div>
     </div>
-
+    
     <button type="submit">Submit</button>
 </form>
 </main>

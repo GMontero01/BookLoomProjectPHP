@@ -1,5 +1,6 @@
 <?php 
 //page title and shared header
+include('shared/authenticate.php');
 $pageTitle = 'Add Publisher';
 include('shared/header.php'); ?>    
 
