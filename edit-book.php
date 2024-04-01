@@ -42,31 +42,27 @@ if (is_numeric($bookId)){
         exit();
     }
         
-}
- 
-
-?>
+}?>
 
 <h2>Edit Book Details</h2>
 <!-- Form to capture user input for new book entry -->
 <form action="update-book.php" method="post" enctype="multipart/form-data">
-
+<fieldset>
     <div class="bookDetails">
         <label for="bookTitle">Book Title:</label>
-        <input type="text" id="bookTitle" name="bookTitle" required value="<?php echo $bookTitle; ?>" />
+        <input type="text" id="bookTitle" name="bookTitle" required value="<?php echo $bookTitle; ?>" /><br>
 
         <label for="bookAuthor">Book Author:</label>
-        <input type="text" id="bookAuthor" name="bookAuthor" required value="<?php echo $bookAuthor; ?>" />
+        <input type="text" id="bookAuthor" name="bookAuthor" required value="<?php echo $bookAuthor; ?>" /><br>
     
         <label for="publishYear">Publish Year:</label>
-        <input name="publishYear" id="publishYear" required placeholder="1900" type="number" min="1700" value="<?php echo $publishYear; ?>" />
+        <input name="publishYear" id="publishYear" required placeholder="1900" type="number" min="1700" value="<?php echo $publishYear; ?>" /><br>
 
         <label for="bookGenre">Book Genre:</label>
-        <input type="text" id="bookGenre" name="bookGenre" required value="<?php echo $bookGenre; ?>" />
+        <input type="text" id="bookGenre" name="bookGenre" required value="<?php echo $bookGenre; ?>" /><br>
         
-        <div>
         <label for="bookPublisher">Book Publisher:</label>
-        <select name="bookPublisher" id="bookPublisher" required> 
+        <select name="bookPublisher" id="bookPublisher" required><br> 
             <!-- Connect and pull database for publisher names -->
             <?php
             try{
@@ -86,16 +82,16 @@ if (is_numeric($bookId)){
                     
                 }
             // $database = null;
+            }catch (Exception $err) {
+                header('location:error.php');
+                exit();
             }
             ?>
-        </select>
-        </div>
-        <div>
-            <label for="photo">Book Cover:</label>
-            <input type="file" id="photo" name="bookCover" accept="image/*" />
-            <input type="hidden" id="activePhoto" name="activePhoto" value="<?php echo $bookCover; ?>" />
-        <div>
-    </div>
+        </select><br>
+        <label for="photo">Book Cover:</label>
+        <input type="file" id="photo" name="bookCover" accept="image/*" />
+        <input type="hidden" id="activePhoto" name="activePhoto" value="<?php echo $bookCover; ?>" />
+        
 <!-- radio button that hides last database drop down menu  -->
     <div class="movieDetails">
         <label for="madeIntoMovie">Made into Movie:</label>
@@ -134,5 +130,6 @@ if (is_numeric($bookId)){
     </div>
     <input type="hidden" name="bookId" id="bookId" value="<?php echo $bookId; ?>" />
     <button type="submit">Submit</button>
+    </fieldset>
 </form>
 </main>

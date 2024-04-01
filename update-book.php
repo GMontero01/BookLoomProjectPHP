@@ -84,7 +84,7 @@ if ($check == true){
         header('location:error.php');
         exit();
     }
-    echo 'Book updated';
+    header('location:bookLibrary.php');
 }
 ?>
 </body>

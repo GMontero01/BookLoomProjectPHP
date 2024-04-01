@@ -80,8 +80,12 @@ body {
     margin: 0%; /* Adjust the top margin to increase the space between the header and the body */
     background-color: #FDFDFD; /* Off-White */
     color: #001F3F; /* Deep Blue */
-}
 
+}
+.bookDetails {
+    text-align: center;
+    align-items: center;
+}
 .publisherDetails {
     text-align: center;
 }
@@ -137,3 +141,10 @@ footer {
 .h2 {
     margin-top: 60px;
 }
+fieldset {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 500px; 
+    margin: auto;
+  }

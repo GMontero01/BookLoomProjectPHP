@@ -100,13 +100,14 @@ if ($check == true){
         $cmd->execute();
 
         $database = null;
+        
     }
     catch (Exception $err) {
         header('location:error.php');
         exit();
     }
     
-    echo 'Book saved to Book Library';
+    header('location:bookLibrary.php');
 }
 ?>
 </body>

@@ -27,7 +27,7 @@ if (empty($publisherName)) {
         header('location:error.php');
         exit();
     }
-        echo 'Publisher Saved';
+    header('location:addBook.php');
 }
 ?>
 </body>

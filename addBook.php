@@ -9,20 +9,20 @@ include('shared/header.php');
 <!-- Form to capture user input for new book entry -->
 <form action="insertBook.php" method="post" enctype="multipart/form-data">
 
-    <div class="bookDetails">
+    <fieldset> 
+        <div class="bookDetails"> 
         <label for="bookTitle">Book Title:</label>
-        <input type="text" id="bookTitle" name="bookTitle" required />
+        <input type="text" id="bookTitle" name="bookTitle" required /><br>
 
         <label for="bookAuthor">Book Author:</label>
-        <input type="text" id="bookAuthor" name="bookAuthor" required />
+        <input type="text" id="bookAuthor" name="bookAuthor" required /><br>
     
         <label for="publishYear">Publish Year:</label>
-        <input name="publishYear" id="publishYear" required placeholder="1900" type="number" min="1700" />
+        <input name="publishYear" id="publishYear" required placeholder="1900" type="number" min="1700" /><br>
 
         <label for="bookGenre">Book Genre:</label>
-        <input type="text" id="bookGenre" name="bookGenre" required />
+        <input type="text" id="bookGenre" name="bookGenre" required /><br>
         
-        <div>
         <label for="bookPublisher">Book Publisher:</label>
         <select name="bookPublisher" id="bookPublisher" required> 
             <!-- Connect and pull database for publisher names -->
@@ -44,13 +44,12 @@ include('shared/header.php');
                 exit();
             }
             ?>
-        </select>
-        </div>
-    </div>
-    <div>
+        </select><br>
         <label for="photo">Book Cover:</label>
         <input type="file" id="bookCover" name="bookCover" accept="image/*" />
-    <div>
+    
+    
+    
 <!-- radio button that hides last database drop down menu  -->
     <div class="movieDetails">
         <label for="madeIntoMovie">Made into Movie:</label>
@@ -89,5 +88,8 @@ include('shared/header.php');
     </div>
     
     <button type="submit">Submit</button>
+    </div>
+    </fieldset>
 </form>
+</body>
 </main>
