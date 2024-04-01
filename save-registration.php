@@ -55,4 +55,5 @@ catch (Exception $err) {
 echo 'User Created';
 
 //Redirect new user to login page
+header('location:login.php');
 ?>

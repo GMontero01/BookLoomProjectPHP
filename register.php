@@ -50,7 +50,6 @@ require('shared/header.php');
     </fieldset>
 
     <button class="offset-button" onclick="return passwordMatch();">Register</button>
-
   </form>
 
 </main>

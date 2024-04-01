@@ -6,9 +6,11 @@
     display: block;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0px;
+.join {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
 table {
@@ -47,6 +49,8 @@ h1, h2{
 }
 h1{
     color: #FDFDFD;
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 nav {
@@ -84,8 +88,28 @@ body {
 
 header {
     background-color: #B10DC9; /* Rich Red */
+    color: #FDFDFD;
     padding: 10px;
     text-align: center;
+}
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3D9970;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #218838;
 }
 
 footer {
@@ -107,5 +131,9 @@ footer {
     width: 350px;
     align-items: center;
 }
-
-
+.features {
+    text-align: center;
+}
+.h2 {
+    margin-top: 60px;
+}
