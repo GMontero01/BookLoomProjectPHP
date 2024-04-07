@@ -5,12 +5,47 @@
 #madeIntoMovieYes:checked ~ .streamingServiceQuestion {
     display: block;
 }
-
-.join {
+.join-container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 60vh; /* Make the container full height of the viewport */
+    
+}
+.join {
     text-align: center;
+    margin-bottom: 60px;
+    background-color: #3D9970; /* Forest Green */
+    color: #fff;
+    padding: 40px; /* Adjust padding for spacing inside the box */
+    border-radius: 10px; /* Rounded edges */
+    max-width: 400px; /* Limit the maximum width of the box */
+    width: 100%; /* Make the box fill the container's width */
+}
+
+.join h2 {
+    font-size: 2em; 
+    margin-bottom: 20px;
+}
+
+.join p {
+    font-size: 1.2em; 
+    margin-bottom: 40px;
+}
+
+.join .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #fff; /* White background for the button */
+    color: #3D9970; /* Forest Green text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.join .cta-button:hover {
+    background-color: #B10DC9;
+    color: #fff; 
 }
 
 table {
@@ -73,15 +108,27 @@ nav a {
 }
 
 nav a:hover {
-    color: red
+    color: #B10DC9
     
 }
+.table-container {
+    flex: 1; /* Allow the main content to grow and fill remaining space */
+    padding: 20px; /* Add padding to the main content */
+}
 body {
-    margin: 0%; /* Adjust the top margin to increase the space between the header and the body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    margin: 0;
     background-color: #FDFDFD; /* Off-White */
     color: #001F3F; /* Deep Blue */
-
 }
+.caveat-header {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
 .bookDetails {
     text-align: center;
     align-items: center;
@@ -91,7 +138,7 @@ body {
 }
 
 header {
-    background-color: #B10DC9; /* Rich Red */
+    background-color: #B10DC9; 
     color: #FDFDFD;
     padding: 10px;
     text-align: center;
@@ -116,12 +163,52 @@ p {
     background-color: #218838;
 }
 
-footer {
-    background-color: #001F3F; /* Deep Blue */
-    color: #FDFDFD; /* Off-White */
-    padding: 10px;
-    text-align: center;
+/* Footer styles */
+.footerBox {
+    background-color: #B10DC9; /* Light Gray */
+    color: #fff; /* Dark Gray */
+    padding: 10px 20px; /* Reduced padding */
+    text-align: center; /* Center align content */
+    margin-top: 200px; /* Add space above the footer */
 }
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* Center align items vertically */
+}
+
+.contact-form,
+.company-info,
+.footer-logo {
+    width: calc(33.33% - 20px);
+    margin: 0 10px;
+    text-align: left; /* Align content inside each section to the left */
+}
+
+.company-info h3 {
+    text-align: center; /* Center align the company information title */
+    margin-bottom: 10px; /* Reduced space below the title */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px); /* Adjusted width for form inputs */
+    padding: 8px; /* Reduced padding for form inputs */
+}
+
+.contact-form input[type="submit"] {
+    width: 100%; /* Make submit button full width */
+    padding: 10px; /* Adjusted padding for submit button */
+}
+
+.footer-logo img {
+    max-width: 100%;
+}
+
+
 #Error, .err {
     color:red;
     font-weight: bold;
@@ -147,4 +234,16 @@ fieldset {
     padding: 20px;
     max-width: 500px; 
     margin: auto;
-  }
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.header-logo {
+    width: 130px; /* Adjust the width as needed */
+    height: auto;
+    display: block;
+}

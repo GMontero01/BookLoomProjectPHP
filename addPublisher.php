@@ -15,4 +15,5 @@ include('shared/header.php'); ?>
 </form>
 </main>
 </body>
+<?php include('shared/footer.php'); ?>
 </html>

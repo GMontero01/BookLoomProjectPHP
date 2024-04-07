@@ -93,3 +93,4 @@ include('shared/header.php');
 </form>
 </body>
 </main>
+<?php include('shared/footer.php'); ?>

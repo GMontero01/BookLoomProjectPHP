@@ -5,7 +5,7 @@
     ?>
     <h2 class = "h2">Welcome to BookLoom</h2>
    
-        <div class = "features">
+        <section class = "features">
             <p>Bookloom is a community-driven platform where book lovers can create accounts, share their favorite books, and discover new reads.</p>
             <br><br>
             <h2>Key Features</h2>
@@ -15,14 +15,16 @@
                 <p>Explore the book library and get great book recommendations.</p>
                 <p>Add/delete functionality available when you create an account to ensure proper entries on our library </p>
             </ul>
-        </div>
+        </section>
+
+        <section class="join-container">
         <div class="join">
-            <br><br>
             <h2>Join BookLoom Today!</h2>
             <p>Start adding to the BookLibrary and expand your Book/Movie repertoire.</p>
             <a href="register.php" class="cta-button">Register</a> 
         </div>
-    </div>
+        </section>
 </main>
 </body>
+<?php include('shared/footer.php'); ?>
 </html>

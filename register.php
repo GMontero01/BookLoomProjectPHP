@@ -43,3 +43,4 @@ require('shared/header.php');
   </form>
 
 </main>
+<?php include('shared/footer.php'); ?>

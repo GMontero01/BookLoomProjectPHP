@@ -11,7 +11,10 @@
 <!-- Shared header amongst all pages -->
 <body>
     <header>
-        <h1>BookLoom</h1>      
+        <div class="logo-container">
+            <img src="images/logo.png" alt="BookLoom Logo" class="header-logo">
+        </div>
+        <h1 class="caveat-header">Welcome to BookLoom</h1> 
     </header>
 
     <nav>

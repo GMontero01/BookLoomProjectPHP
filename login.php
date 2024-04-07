@@ -14,7 +14,7 @@ require 'shared/header.php';
     ?>
   
 
-  <form method="post" action="validateUser.php">
+  <form class="login-form" method="post" action="validateUser.php">
     <fieldset>
       <h5>Please enter your credentials.</h5>
       <label for="username">Username:</label>
@@ -28,3 +28,4 @@ require 'shared/header.php';
   </form>
 </body>
 </main>
+<?php include('shared/footer.php'); ?>
