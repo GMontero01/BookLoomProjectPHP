@@ -46,7 +46,8 @@ if (is_numeric($bookId)){
 
 <h2>Edit Book Details</h2>
 <!-- Form to capture user input for new book entry -->
-<form action="update-book.php" method="post" enctype="multipart/form-data">
+<section class="formFormatting">
+<form class="longerForm" action="update-book.php" method="post" enctype="multipart/form-data">
 <fieldset>
     <div class="bookDetails">
         <label for="bookTitle">Book Title:</label>
@@ -132,4 +133,6 @@ if (is_numeric($bookId)){
     <button type="submit">Submit</button>
     </fieldset>
 </form>
+</section>
 </main>
+<?php include('shared/footer.php'); ?>

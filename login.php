@@ -13,8 +13,8 @@ require 'shared/header.php';
   }
     ?>
   
-
-  <form class="login-form" method="post" action="validateUser.php">
+  <section class="formFormatting">
+  <form class="simple-form-style" class="login-form" method="post" action="validateUser.php">
     <fieldset>
       <h5>Please enter your credentials.</h5>
       <label for="username">Username:</label>
@@ -26,6 +26,7 @@ require 'shared/header.php';
       <button class="offset-button">Login</button>
     </fieldset>
   </form>
+  </section>
 </body>
 </main>
 <?php include('shared/footer.php'); ?>

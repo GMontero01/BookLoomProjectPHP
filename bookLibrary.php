@@ -16,6 +16,7 @@ try {
     exit();
 }
 ?>
+<section class="formFormatting">
 <div class="table-container">
     <h2>Book Library</h2>
     <table>
@@ -58,5 +59,6 @@ try {
         </tbody>
     </table>
 </div>
+</section>
 </main>
 <?php include('shared/footer.php'); ?>

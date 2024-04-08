@@ -1,26 +1,39 @@
+.movieDetails {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.movieDetails label {
+    margin-right: 40px; 
+}
 .streamingServiceQuestion {
     display: none;
+    width: 100%;
+    margin-top: 10px;
 }
 
 #madeIntoMovieYes:checked ~ .streamingServiceQuestion {
     display: block;
+    
 }
 .join-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* Make the container full height of the viewport */
+    height: 100vh; 
     
 }
 .join {
     text-align: center;
     margin-bottom: 60px;
-    background-color: #3D9970; /* Forest Green */
+    background-color: #3D9970; 
     color: #fff;
-    padding: 40px; /* Adjust padding for spacing inside the box */
-    border-radius: 10px; /* Rounded edges */
-    max-width: 400px; /* Limit the maximum width of the box */
-    width: 100%; /* Make the box fill the container's width */
+    padding: 40px; 
+    border-radius: 10px; 
+    max-width: 400px; 
+    width: 100%; 
 }
 
 .join h2 {
@@ -36,15 +49,15 @@
 .join .cta-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #fff; /* White background for the button */
-    color: #3D9970; /* Forest Green text color */
+    background-color: #fff; 
+    color: #3D9970; 
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .join .cta-button:hover {
-    background-color: #B10DC9;
+    background-color: #991917;
     color: #fff; 
 }
 
@@ -89,7 +102,7 @@ h1{
 }
 
 nav {
-    background-color: #3D9970; /* Forest Green */
+    background-color: #516453; 
     padding: 10px;
 }
 
@@ -104,30 +117,31 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #FDFDFD; /* Off-White */
+    color: #FDFDFD; 
 }
 
 nav a:hover {
-    color: #B10DC9
+    color: #991917
     
 }
 .table-container {
-    flex: 1; /* Allow the main content to grow and fill remaining space */
-    padding: 20px; /* Add padding to the main content */
+    flex: 1; 
+    padding: 20px; 
 }
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    min-height: 100vh; 
     margin: 0;
-    background-color: #FDFDFD; /* Off-White */
-    color: #001F3F; /* Deep Blue */
+    background-color: #FDFDFD; 
+    color: #001F3F; 
 }
 .caveat-header {
-    font-family: "Caveat", cursive;
+    font-family: "Tangerine", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-size: 100px;
   }
 .bookDetails {
     text-align: center;
@@ -135,10 +149,13 @@ body {
 }
 .publisherDetails {
     text-align: center;
+    margin-bottom: 200px;
 }
 
 header {
-    background-color: #B10DC9; 
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #FDFDFD;
     padding: 10px;
     text-align: center;
@@ -163,20 +180,17 @@ p {
     background-color: #218838;
 }
 
-/* Footer styles */
 .footerBox {
-    background-color: #B10DC9; /* Light Gray */
-    color: #fff; /* Dark Gray */
-    padding: 10px 20px; /* Reduced padding */
-    text-align: center; /* Center align content */
-    margin-top: 200px; /* Add space above the footer */
+    background-color: #516453; 
+    color: #fff; 
+    text-align: center; 
 }
 
 .footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center; /* Center align items vertically */
+    align-items: center; 
 }
 
 .contact-form,
@@ -184,30 +198,36 @@ p {
 .footer-logo {
     width: calc(33.33% - 20px);
     margin: 0 10px;
-    text-align: left; /* Align content inside each section to the left */
+    text-align: center; 
 }
 
 .company-info h3 {
-    text-align: center; /* Center align the company information title */
-    margin-bottom: 10px; /* Reduced space below the title */
+    text-align: center; 
+    margin-bottom: 10px; 
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: calc(100% - 20px); /* Adjusted width for form inputs */
-    padding: 8px; /* Reduced padding for form inputs */
+    width: calc(100% - 50px); 
+    padding: 8px; 
+    border-radius: 10px;
 }
 
 .contact-form input[type="submit"] {
-    width: 100%; /* Make submit button full width */
-    padding: 10px; /* Adjusted padding for submit button */
+    width: 40%; 
+    padding: 10px; 
+    border-radius: 10px;
+}
+.contact-form input[type="submit"]:hover {
+    background-color: #218838; 
+    color: #fff; 
 }
 
 .footer-logo img {
-    max-width: 100%;
+    max-width: 50%;
+    text-align: right;
 }
-
 
 #Error, .err {
     color:red;
@@ -243,7 +263,150 @@ fieldset {
 }
 
 .header-logo {
-    width: 130px; /* Adjust the width as needed */
+    width: 130px; 
     height: auto;
     display: block;
+}
+
+.simple-form-style {
+    margin: 0 auto; 
+    max-width: 400px; 
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 10px;
+}
+.simple-form-style label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.simple-form-style 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.simple-form-style 
+input[type="submit"],
+button {
+    padding: 10px 15px;
+    background-color: #3D9970; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.simple-form-style 
+input[type="submit"]:hover,
+button:hover {
+    background-color: #218838; 
+}
+
+.longerForm {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.longerForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.longerForm 
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.longerForm
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.longerForm
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.longerForm
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #3D9970;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.longerForm 
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+.formFormatting {
+    margin-bottom: 200px;
+}
+
+/* Styles for smaller screens */
+@media only screen and (max-width: 767px) {
+    .join {
+        padding: 20px; 
+    }
+
+    .footer-logo img {
+        max-width: 100%; 
+    }
+}
+
+/* Styles for medium screens */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .join {
+        max-width: 300px; 
+    }
+}
+
+/* Styles for larger screens */
+@media only screen and (min-width: 1025px) {
+    .join-container {
+        height: 80vh; 
+    }
+
+    .footer-logo img {
+        max-width: 50%; 
+    }
+}
+@media only screen and (max-width: 767px) {
+    table {
+        font-size: 0.8em; 
+    }
+
+    th, td {
+        padding: 8px; 
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    table {
+        font-size: 1em; 
+    }
+
+    th, td {
+        padding: 12px; 
+    }
 }

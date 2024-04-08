@@ -7,8 +7,8 @@ include('shared/header.php');
 
 <h2>Add a new Book</h2>
 <!-- Form to capture user input for new book entry -->
-<form action="insertBook.php" method="post" enctype="multipart/form-data">
-
+<section class="formFormatting">
+<form class="longerForm" action="insertBook.php" method="post" enctype="multipart/form-data"> 
     <fieldset> 
         <div class="bookDetails"> 
         <label for="bookTitle">Book Title:</label>
@@ -55,7 +55,6 @@ include('shared/header.php');
         <label for="madeIntoMovie">Made into Movie:</label>
         <input type="radio" id="madeIntoMovieYes" name="madeIntoMovie" value="yes" required />
         <label for="madeIntoMovieYes">Yes</label>
-
         <input type="radio" id="madeIntoMovieNo" name="madeIntoMovie" value="no" required />
         <label for="madeIntoMovieNo">No</label>
 
@@ -91,6 +90,7 @@ include('shared/header.php');
     </div>
     </fieldset>
 </form>
+</section>
 </body>
 </main>
 <?php include('shared/footer.php'); ?>

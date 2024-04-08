@@ -15,8 +15,8 @@ require('shared/header.php');
     echo '<h4 class="err">Username already exists</h4>';
   }
   ?>
-
-  <form method="post" action="save-registration.php">
+<section class="formFormatting">
+  <form class="simple-form-style" method="post" action="save-registration.php">
 
     <fieldset>
       <h5>Passwords must be a minimum of 8 characters, including 1 digit, 1 upper-case letter, and 1 lower-case letter.</h5>
@@ -41,6 +41,6 @@ require('shared/header.php');
     <button class="offset-button" onclick="return passwordMatch();">Register</button>
     </fieldset>
   </form>
-
+</section>
 </main>
 <?php include('shared/footer.php'); ?>
